@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     'django_filters',
     'rest_framework',
+    'rest_framework.authtoken',
+    
     'cursos',
 ]
 
@@ -134,7 +137,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     #definindo método padrão para autenticação
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
+       # 'rest_framework.authentication.SessionAuthentication',
+       'rest_framework.authentication.TokenAuthentication',
     ),
     #definindo a permição para o uso dos clientes
     'DEFAULT_PERMISSION_CLASSES' :(
