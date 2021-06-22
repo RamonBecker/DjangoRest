@@ -1,5 +1,5 @@
 from rest_framework.generics import get_object_or_404
-from rest_framework import generics
+from rest_framework import generics, mixins
 
 from .models import Curso, Avaliacao
 
@@ -62,6 +62,20 @@ class CursoViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
     
 
+""" 
 class AvaliacaoViewSet(viewsets.ModelViewSet):
     queryset = Avaliacao.objects.all()
+    serializer_class = AvaliacaoSerializer
+"""
+
+class AvaliacaoViewSet(
+ #   mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    viewsets.GenericViewSet
+    ):
+    
+    queryset= Avaliacao.objects.all()
     serializer_class = AvaliacaoSerializer
