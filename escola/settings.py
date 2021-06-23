@@ -147,6 +147,15 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PAGINATION_CLASS': 
         'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 2
+    'PAGE_SIZE': 2,
+    'DEFAULT_THROTTLE_CLASSES': (
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle',
+    ),
+    'DEFAULT_THROTTLE_RATES':{
+        #se quiser que fosse por segundos -> substituir o minute por second
+        'anon': '5/minute', #second (segundo), day(dia), month(mes), year (ano), etc...
+        'user': '10/minute',
+    }
     
 }
