@@ -22,7 +22,10 @@ class AvaliacaoSerializer(serializers.ModelSerializer):
             'criacao',
             'ativo'
         )
-       
+    def validate_nota(self, valor):
+        if valor in range(1, 6):
+            return valor
+        raise serializers.ValidationError('A nota precisa ser um inteiro entre 1 e 5')       
         
 class CursoSerializer(serializers.ModelSerializer):
     #Nested Relationship, é preferivel que seja usado em relacionamentos 1 para 1
