@@ -142,6 +142,7 @@ REST_FRAMEWORK = {
     ),
     #definindo a permição para o uso dos clientes
     'DEFAULT_PERMISSION_CLASSES' :(
+        #Esta funcionalidade é para definir se o usuário está ou não autenticado. Se estiver autenticado o usuário poderá usar as funcionalidades do sistema, caso contrário, só poderá fazer a leitura utilizando o método GET 
       'rest_framework.permissions.IsAuthenticatedOrReadOnly',  
     ),
     'DEFAULT_PAGINATION_CLASS': 
