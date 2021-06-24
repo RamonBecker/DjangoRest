@@ -1,6 +1,4 @@
 import requests
-from requests.api import head
-import rest_framework
 
 headers = {'Authorization': 'Token 7660b0b2be8f5cefe5f82701333a84aa8417f921'}
 
